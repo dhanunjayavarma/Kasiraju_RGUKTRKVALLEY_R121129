@@ -292,6 +292,30 @@ public class StudentGroup implements StudentArrayOperation {
 		}
 	}
 
+	@Override
+	public void bubbleSort() {
+		// Add your implementation here
+	}
+
+	@Override
+	public Student[] getByBirthDate(Date date) {
+		// Add your implementation here
+		//Student[] dateStudent;
+		 ArrayList<Student> al=new ArrayList<Student>();
+		int len=StudentList.size();
+		int i;
+		for(i=0;i<len;i++)
+		{
+			if(date.after(StudentList.get(i).getBirthDate())||date.equals(StudentList.get(i).getBirthDate() ))
+			{
+				//System.out.println(StudentList.get(i).getBirthDate());
+				al.add(this.students[i]);
+			}
+		}
+		Student[] dateStudent=new Student[al.size()];
+		dateStudent=toa(al,dateStudent);
+		return dateStudent;
+	}
 	public Student[] toa(ArrayList<Student> al,Student[] st)
 	{
 		int i;
@@ -302,37 +326,6 @@ public class StudentGroup implements StudentArrayOperation {
 		}
 		return st;
 	}
-	@Override
-	public void bubbleSort() {
-		// Add your implementation here
-		int i,j;
-		int len=StudentList.size();
-		Student st;
-		for(i=0;i<len-1;i++)
-		{
-			for(j=0;j<len-i-1;j++)
-			{
-				//System.out.println(this.students[j].compareTo(this.students[j+1]));
-				if(StudentList.get(j).compareTo(StudentList.get(j+1))>0)//f>s +
-				{
-					st=this.students[j];
-					StudentList.set(j,this.students[j+1]);
-					StudentList.set(j+1,st);
-				}
-			}
-
-		}
-		this.students = new Student[StudentList.size()];
-		toarray(this.students);
-	}
-
-	@Override
-	public Student[] getByBirthDate(Date date) {
-		// Add your implementation here
-		return null;
-	}
-
-
 	@Override
 	public Student[] getBetweenBirthDates(Date firstDate, Date lastDate) {
 		// Add your implementation here
