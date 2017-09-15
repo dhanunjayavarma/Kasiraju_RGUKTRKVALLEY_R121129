@@ -329,8 +329,33 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getByBirthDate(Date date) {
 		// Add your implementation here
-		return null;
+		//Student[] dateStudent;
+		ArrayList<Student> al=new ArrayList<Student>();
+		int len=StudentList.size();
+		int i;
+		for(i=0;i<len;i++)
+		{
+			if(date.after(StudentList.get(i).getBirthDate())||date.equals(StudentList.get(i).getBirthDate() ))
+			{
+				//System.out.println(StudentList.get(i).getBirthDate());
+				al.add(this.students[i]);
+			}
+		}
+		Student[] dateStudent=new Student[al.size()];
+		dateStudent=toa(al,dateStudent);
+		return dateStudent;
 	}
+	public Student[] toa(ArrayList<Student> al,Student[] st)
+	{
+		int i;
+		int len=st.length;
+		for(i=0;i<len;i++)
+		{
+			st[i]=al.get(i);
+		}
+		return st;
+	}
+
 
 	@Override
 	public Student[] getBetweenBirthDates(Date firstDate, Date lastDate) {
