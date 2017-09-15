@@ -306,7 +306,7 @@ public class StudentGroup implements StudentArrayOperation {
 		int i;
 		for(i=0;i<len;i++)
 		{
-			if(date.after(StudentList.get(i).getBirthDate())||date.equals(StudentList.get(i).getBirthDate() ))
+			if(date.before(StudentList.get(i).getBirthDate())||date.equals(StudentList.get(i).getBirthDate() ))
 			{
 				//System.out.println(StudentList.get(i).getBirthDate());
 				al.add(this.students[i]);
