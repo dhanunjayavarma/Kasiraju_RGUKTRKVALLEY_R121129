@@ -330,7 +330,7 @@ public class StudentGroup implements StudentArrayOperation {
 	public Student[] getByBirthDate(Date date) {
 		// Add your implementation here
 		//Student[] dateStudent;
-		public static ArrayList<Student> al=new ArrayList<Student>();
+		ArrayList<Student> al=new ArrayList<Student>();
 		int len=StudentList.size();
 		int i;
 		for(i=0;i<len;i++)
