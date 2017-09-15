@@ -305,6 +305,25 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void bubbleSort() {
 		// Add your implementation here
+		int i,j;
+		int len=StudentList.size();
+		Student st;
+		for(i=0;i<len-1;i++)
+		{
+			for(j=0;j<len-i-1;j++)
+			{
+				//System.out.println(this.students[j].compareTo(this.students[j+1]));
+				if(StudentList.get(j).compareTo(StudentList.get(j+1))>0)//f>s +
+				{
+					st=this.students[j];
+					StudentList.set(j,this.students[j+1]);
+					StudentList.set(j+1,st);
+				}
+			}
+
+		}
+		this.students = new Student[StudentList.size()];
+		toarray(this.students);
 	}
 
 	@Override
